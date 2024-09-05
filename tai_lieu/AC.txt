@@ -1,0 +1,39 @@
+Sử dụng GX2
+ - Tạo project dòng FXCPU-> FX3U/FX3UC
+ - Co the check ket noi giua PLC vs may tinh(phuong thuc ket noi RS-232C, com 6 cho )
+ - Viết chương trình
+ - Rebuilt-> write to PLC
+
+Sử dụng FX Configurator- FP 
+- Bật nguồn.(check xem driver có lỗi không d01 d02)
+- Mở phần mềm FX Configurator- FP-> Tạo file-> Lưu file.
+- Check kết nối(Online-> Connection setup-> Comtest)
+	- RS-232C
+	- Com 6
+	- 115.2kbps
+-  Initialize the module(chọn tất cả Positionting parameter, Servo paramaters, Table information)-> Flash ROM write-> ok
+- Sep up (positioning parameters, servo parameters)
+	positioning parameters:check 6 vấn đề: 	-Maximum speed: (X-axis: 13107200Hz, Y-axis:13107200Hz)
+						-OPR mode: (X-axis: 1:Data set, Y-axis: 1:Data set)
+						-OPR interlock setting: (X-axis: 0:Invaild, Y-axis: 0:Invaild )
+
+						-JOG instruction evaluation time: (X-axis: 300ms, Y-axis: 300ms)
+						-OPR speed(Hight speed): (X-axis:4000000Hz, Y-axis:4000000Hz)
+						-Machine zero point address:(X-axis:0PLS, Y-axis:0PLS)
+	servo parameters: check 2 vấn đề: 
+						-Servo amplifier serises: (X-axis: 1:MR-J3-B, Y-axis:1:MR-J3-B)
+						-Funtion seletionA-1:
+- Lưu ý: Bấm reset trước khi write to module
+- Writer to module: Online-> Write to mudule-> Positionting parameter, Servo paramaters-> Flash ROM write-> ok.
+- Setup thông số
+- Để chạy 	
+		- servo parameters: để khởi tạo servo
+		- set vị trí, chức năng trục
+		- học cách sử dụng tập lệnh 
+
+- Viet PLC nạp xuống
+- Khởi tạo file mới
+	Setup 6:2
+	Reset-> nạp xuống
+	Write to PLC
+	
